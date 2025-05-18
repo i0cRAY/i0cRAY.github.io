@@ -8,8 +8,10 @@
       
       
       
-        <link rel="canonical" href="https://i0cray.github.io/notes/Luogu/%E4%BB%8B%E7%B4%B9.html">
+        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2021-11-p4.html">
       
+      
+        <link rel="prev" href="../index.html">
       
       
       
@@ -18,7 +20,7 @@
     
     
       
-        <title>介紹 - 我的筆記</title>
+        <title>2021-11-p4 - 我的筆記</title>
       
     
     
@@ -59,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              介紹
+              2021-11-p4
             
           </span>
         </div>
@@ -176,35 +183,17 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../APCS/%E4%BB%8B%E7%B4%B9.html" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="2021-11-p4.html" class="md-tabs__link">
           
   
   
   APCS
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../Lougu/介紹.md" class="md-tabs__link">
-          
-  
-  
-  Lougu
 
         </a>
       </li>
@@ -326,24 +315,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -356,7 +350,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             APCS
@@ -367,91 +361,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../APCS/%E4%BB%8B%E7%B4%B9.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="2021-11-p4.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    關於
+    2021-11-p4
     
   </span>
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Lougu
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Lougu
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Lougu/介紹.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    關於
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -481,6 +414,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -496,9 +431,74 @@
 
 
 
-  <h1>介紹</h1>
+<h1 id="_1">考點</h1>
+<p>dsu</p>
+<h1 id="_2">思路</h1>
+<p>敵人的敵人是朋友</p>
+<pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
 
-<p>1</p>
+struct Dsu {
+    std::vector&lt;int&gt; p;
+    Dsu(int n) : p(n, -1) {}
+
+    int rf(int x) {
+        if (p[x] &lt; 0) return x;
+        return p[x] = rf(p[x]);
+    }
+
+    void cb(int x, int y) {
+        x = rf(x);
+        y = rf(y);
+
+        if (x == y) return;
+        if (p[x] &gt; p[y]) std::swap(x, y);
+
+        p[x] += p[y];
+        p[y] = x;
+        return;
+    }
+
+    bool same(int x, int y) {
+        return rf(x) == rf(y);
+    }
+};
+
+int main() {
+    std::cin.tie(nullptr) -&gt; sync_with_stdio(false);
+
+    int n, m;
+    std::cin &gt;&gt; n &gt;&gt; m;
+
+    Dsu base(2 * n);
+
+    for (int i = 0; i &lt; m; i++) {
+        int a, b;
+        std::cin &gt;&gt; a &gt;&gt; b;
+        base.cb(a, b + n);
+        base.cb(b, a + n);
+    }
+
+    int p, k;
+    std::cin &gt;&gt; p &gt;&gt; k;
+
+    for (int i = 1; i &lt;= p; i++) {
+        bool can = true;
+        Dsu d = base;
+        for (int j = 0; j &lt; k; j++) {
+            int a, b;
+            std::cin &gt;&gt; a &gt;&gt; b;
+            if (d.same(a, b) || d.same(a + n, b + n)) {
+                can = false;
+            } else {
+                d.cb(a, b + n);
+                d.cb(b, a + n);
+            }
+        }
+        if (!can) std::cout &lt;&lt; i &lt;&lt; '\n';
+    }
+    return 0;
+}
+</code></pre>
 
 
 
