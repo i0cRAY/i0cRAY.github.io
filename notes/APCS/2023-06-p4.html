@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2021-11-p4.html">
+        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2023-06-p4.html">
       
       
-        <link rel="prev" href="../index.html">
+        <link rel="prev" href="2021-11-p4.html">
       
       
-        <link rel="next" href="2023-06-p4.html">
+        <link rel="next" href="2024-06-p3.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>2021-11-p4 - 我的筆記</title>
+        <title>2023-06-p4 - 我的筆記</title>
       
     
     
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2021-11-p4
+              2023-06-p4
             
           </span>
         </div>
@@ -363,6 +363,29 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="2021-11-p4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2021-11-p4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -378,7 +401,7 @@
   
   
   <span class="md-ellipsis">
-    2021-11-p4
+    2023-06-p4
     
   </span>
   
@@ -386,12 +409,12 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="2021-11-p4.html" class="md-nav__link md-nav__link--active">
+      <a href="2023-06-p4.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    2021-11-p4
+    2023-06-p4
     
   </span>
   
@@ -442,29 +465,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2023-06-p4.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    2023-06-p4
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -567,76 +567,69 @@
 
 
 
-  <h1>2021-11-p4</h1>
+  <h1>2023-06-p4</h1>
 
 <h3 id="_1">考點</h3>
-<p>dsu</p>
+<p>拓樸排序</p>
 <h3 id="_2">思路</h3>
-<p>敵人的敵人是朋友</p>
+<p>一個鑰匙可以開多個寶箱和只能用一次</p>
 <h3 id="_3">時間複雜度</h3>
-<p>$O(m \times α(n) + p \times (n + k \times α(n)))$</p>
-<pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
+<p>$O(n \times k)$</p>
+<pre><code class="language-c++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
 
-struct Dsu {
-    std::vector&lt;int&gt; p;
-    Dsu(int n) : p(n, -1) {}
-
-    int rf(int x) {
-        if (p[x] &lt; 0) return x;
-        return p[x] = rf(p[x]);
-    }
-
-    void cb(int x, int y) {
-        x = rf(x);
-        y = rf(y);
-
-        if (x == y) return;
-        if (p[x] &gt; p[y]) std::swap(x, y);
-
-        p[x] += p[y];
-        p[y] = x;
-        return;
-    }
-
-    bool same(int x, int y) {
-        return rf(x) == rf(y);
-    }
-};
+vector&lt;int&gt; keyToBox[100005], boxToKey[100005];
 
 int main() {
-    std::cin.tie(nullptr) -&gt; sync_with_stdio(false);
+    int n, m, k, t, x;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k &gt;&gt; t;
 
-    int n, m;
-    std::cin &gt;&gt; n &gt;&gt; m;
+    queue&lt;int&gt; q;
+    vector&lt;bool&gt; used(m);
+    vector&lt;int&gt; boxInDegree(n);
 
-    Dsu base(2 * n);
-
-    for (int i = 0; i &lt; m; i++) {
-        int a, b;
-        std::cin &gt;&gt; a &gt;&gt; b;
-        base.cb(a, b + n);
-        base.cb(b, a + n);
+    for (int i = 0; i &lt; t; i++) {
+        cin &gt;&gt; x;
+        q.emplace(x);
     }
 
-    int p, k;
-    std::cin &gt;&gt; p &gt;&gt; k;
-
-    for (int i = 1; i &lt;= p; i++) {
-        bool can = true;
-        Dsu d = base;
+    for (int i = 0; i &lt; n; i++) {
         for (int j = 0; j &lt; k; j++) {
-            int a, b;
-            std::cin &gt;&gt; a &gt;&gt; b;
-            if (d.same(a, b) || d.same(a + n, b + n)) {
-                can = false;
-            } else {
-                d.cb(a, b + n);
-                d.cb(b, a + n);
+            cin &gt;&gt; x;
+            keyToBox[x].emplace_back(i);
+            boxInDegree[i]++;
+        }
+    }
+
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; k; j++) {
+            cin &gt;&gt; x;
+            boxToKey[i].emplace_back(x);
+        }
+    }
+
+    int cnt = 0;
+    while (!q.empty()) {
+        int u = q.front();
+        q.pop();
+
+        if (used[u]) continue;
+
+        for (int box : keyToBox[u]) {
+            boxInDegree[box]--;
+            if (boxInDegree[box] == 0) {
+                cnt++;
+                for (int key : boxToKey[box]) {
+                    if (!used[key]) {
+                        q.emplace(key);
+                    }
+                }
             }
         }
-        if (!can) std::cout &lt;&lt; i &lt;&lt; '\n';
+
+        used[u] = true;
     }
-    return 0;
+    cout &lt;&lt; cnt;
 }
 </code></pre>
 

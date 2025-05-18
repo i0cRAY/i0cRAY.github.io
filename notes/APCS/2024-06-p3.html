@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2021-11-p4.html">
+        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2024-06-p3.html">
       
       
-        <link rel="prev" href="../index.html">
+        <link rel="prev" href="2023-06-p4.html">
       
-      
-        <link rel="next" href="2023-06-p4.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +20,7 @@
     
     
       
-        <title>2021-11-p4 - 我的筆記</title>
+        <title>2024-06-p3 - 我的筆記</title>
       
     
     
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2021-11-p4
+              2024-06-p3
             
           </span>
         </div>
@@ -363,6 +361,52 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="2021-11-p4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2021-11-p4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2023-06-p4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2023-06-p4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -378,7 +422,7 @@
   
   
   <span class="md-ellipsis">
-    2021-11-p4
+    2024-06-p3
     
   </span>
   
@@ -386,12 +430,12 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="2021-11-p4.html" class="md-nav__link md-nav__link--active">
+      <a href="2024-06-p3.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    2021-11-p4
+    2024-06-p3
     
   </span>
   
@@ -442,52 +486,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2023-06-p4.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    2023-06-p4
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2024-06-p3.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    2024-06-p3
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -567,75 +565,59 @@
 
 
 
-  <h1>2021-11-p4</h1>
+  <h1>2024-06-p3</h1>
 
 <h3 id="_1">考點</h3>
-<p>dsu</p>
+<p>枚舉、二分搜、set</p>
 <h3 id="_2">思路</h3>
-<p>敵人的敵人是朋友</p>
+<p>分別枚舉 k 和 s，再從枚舉 k 的結果二分搜找沒在 s 裡的</p>
 <h3 id="_3">時間複雜度</h3>
-<p>$O(m \times α(n) + p \times (n + k \times α(n)))$</p>
+<p>$O(|K|^L + |S| \times L + K^L \times \log S)$</p>
 <pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
+using namespace std;
 
-struct Dsu {
-    std::vector&lt;int&gt; p;
-    Dsu(int n) : p(n, -1) {}
+string k, s;
+int l;
 
-    int rf(int x) {
-        if (p[x] &lt; 0) return x;
-        return p[x] = rf(p[x]);
+set&lt;string&gt; res;
+void dfs(int i, string a) {
+    if (i == l) {
+        res.insert(a);
+    } else {
+        for (int j = 0; j &lt; k.size(); j++) {
+            a += k[j];
+            dfs(i + 1, a);
+            a.pop_back();
+        }
     }
-
-    void cb(int x, int y) {
-        x = rf(x);
-        y = rf(y);
-
-        if (x == y) return;
-        if (p[x] &gt; p[y]) std::swap(x, y);
-
-        p[x] += p[y];
-        p[y] = x;
-        return;
-    }
-
-    bool same(int x, int y) {
-        return rf(x) == rf(y);
-    }
-};
+}
 
 int main() {
-    std::cin.tie(nullptr) -&gt; sync_with_stdio(false);
+    cin &gt;&gt; k &gt;&gt; l &gt;&gt; s;
+    string a = &quot;&quot;;
+    dfs(0, a);
 
-    int n, m;
-    std::cin &gt;&gt; n &gt;&gt; m;
-
-    Dsu base(2 * n);
-
-    for (int i = 0; i &lt; m; i++) {
-        int a, b;
-        std::cin &gt;&gt; a &gt;&gt; b;
-        base.cb(a, b + n);
-        base.cb(b, a + n);
-    }
-
-    int p, k;
-    std::cin &gt;&gt; p &gt;&gt; k;
-
-    for (int i = 1; i &lt;= p; i++) {
-        bool can = true;
-        Dsu d = base;
-        for (int j = 0; j &lt; k; j++) {
-            int a, b;
-            std::cin &gt;&gt; a &gt;&gt; b;
-            if (d.same(a, b) || d.same(a + n, b + n)) {
-                can = false;
-            } else {
-                d.cb(a, b + n);
-                d.cb(b, a + n);
-            }
+    set&lt;string&gt; res2;
+    string b = &quot;&quot;;
+    for (int i = 0; i &lt; s.size(); i++) {
+        b += s[i];
+        if (b.size() == l) {
+            res2.insert(b);
+            b.erase(b.begin());
         }
-        if (!can) std::cout &lt;&lt; i &lt;&lt; '\n';
     }
+
+    // for (auto ss : res2) {
+    //     cout &lt;&lt; ss &lt;&lt; '\n';
+    // }
+
+    for (string t : res) {
+        if (res2.find(t) == res2.end()) {
+            cout &lt;&lt; t;
+            return 0;
+        }
+    }
+
     return 0;
 }
 </code></pre>
