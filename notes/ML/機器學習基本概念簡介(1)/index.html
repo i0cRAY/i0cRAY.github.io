@@ -993,21 +993,21 @@
 </ol>
 <h3 id="3">機器學習找函數的 3 個步驟</h3>
 <h4 id="1">1. 猜測一下</h4>
-<p>簡單的猜 function 為 : 
-$$
+<p>簡單的猜 function 為 : </p>
+<div class="arithmatex">\[
 y = w \times x_i + b
-$$</p>
+\]</div>
 <p>其中，<span class="arithmatex">\(x_i\)</span> 為前一天總共觀看的人數，<span class="arithmatex">\(b\)</span> 跟 <span class="arithmatex">\(w\)</span> 為未知的參數。</p>
 <p>此時，我們將這個帶有未知的參數的 function 稱為 model (模型)。而我們提供給 ai 的線索稱為 feature (這裡的 <span class="arithmatex">\(x\)</span>)，此外 <span class="arithmatex">\(w\)</span> 是 weight、<span class="arithmatex">\(b\)</span> 是 bias。</p>
 <h4 id="2-loss">2. 定義 loss</h4>
 <p>loss 是一個 function，輸入是 <span class="arithmatex">\(b\)</span> 跟 <span class="arithmatex">\(w\)</span>，輸出代表說把這一組未知的參數帶進去，設定某一個數值的時候，這筆預測出來的結果是好還不好。</p>
 <p>簡單來說就是帶進去後的預測出來的結果跟真正的資料 (label) 有沒有相差很多。</p>
 <p>這裡設定 <span class="arithmatex">\(e_i\)</span> 為這兩者之間的差距 (加絕對值)，這裡 <span class="arithmatex">\(e_i\)</span> 的設法沒有一定。</p>
-<p>最後 loss 輸出：
-$$
+<p>最後 loss 輸出：</p>
+<div class="arithmatex">\[
 L = \frac{1}{N} \times \sum_i e_i
-$$
-（其中 <span class="arithmatex">\(N\)</span> 為訓練的總個數）</p>
+\]</div>
+<p>(其中 <span class="arithmatex">\(N\)</span> 為訓練的總個數)</p>
 <p>當然，<span class="arithmatex">\(L\)</span> 越小越好。</p>
 <h4 id="3_1">3. 解一個最佳化的問題</h4>
 <p>找出 <span class="arithmatex">\(w\)</span> 跟 <span class="arithmatex">\(b\)</span> 使 <span class="arithmatex">\(L\)</span> 最小，此時，最佳解的 <span class="arithmatex">\(w\)</span> 跟 <span class="arithmatex">\(b\)</span> 分別記為 <span class="arithmatex">\(w^*\)</span> 跟 <span class="arithmatex">\(b^*\)</span>。 
@@ -1021,10 +1021,10 @@ $$
 <p>好的那該怎麼決定 <span class="arithmatex">\(w\)</span> 的變化要多大呢？這取決於：
 1. 當下的斜率
 2. <span class="arithmatex">\(\eta\)</span> : learning rate (這種機器學習需要自己設定的東西叫做 hyperparameters)</p>
-<p><span class="arithmatex">\(w\)</span> 的步伐就是這兩個相乘，以數學形式表示就是：
-$$
+<p><span class="arithmatex">\(w\)</span> 的步伐就是這兩個相乘，以數學形式表示就是：</p>
+<div class="arithmatex">\[
 w_{new} \leftarrow w_{old} - \eta \frac{\partial L}{\partial w}
-$$</p>
+\]</div>
 <ul>
 <li><span class="arithmatex">\(w\)</span> 是模型中的未知參數。</li>
 <li><span class="arithmatex">\(\frac{\partial L}{\partial w}\)</span> 是計算出來的斜率。</li>
