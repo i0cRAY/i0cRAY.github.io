@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2021-11-p4.html">
+        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2023-01-p3.html">
       
       
-        <link rel="prev" href="../index.html">
+        <link rel="prev" href="2021-11-p4.html">
       
       
-        <link rel="next" href="2023-01-p3.html">
+        <link rel="next" href="2023-06-p4.html">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>2021-11-p4 - 我的筆記</title>
+        <title>2023-01-p3 - 我的筆記</title>
       
     
     
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2021-11-p4
+              2023-01-p3
             
           </span>
         </div>
@@ -436,6 +436,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="2021-11-p4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2021-11-p4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -453,7 +481,7 @@
   <span class="md-ellipsis">
     
   
-    2021-11-p4
+    2023-01-p3
   
 
     
@@ -464,14 +492,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="2021-11-p4.html" class="md-nav__link md-nav__link--active">
+      <a href="2023-01-p3.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    2021-11-p4
+    2023-01-p3
   
 
     
@@ -520,7 +548,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        時間複雜度
+        複雜度
       
     </span>
   </a>
@@ -531,34 +559,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2023-01-p3.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2023-01-p3
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -790,7 +790,7 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        時間複雜度
+        複雜度
       
     </span>
   </a>
@@ -814,75 +814,139 @@
 
 
 
-  <h1>2021-11-p4</h1>
+  <h1>2023-01-p3</h1>
 
 <h3 id="_1">考點</h3>
-<p>dsu</p>
+<p>遞迴</p>
 <h3 id="_2">思路</h3>
-<p>敵人的敵人是朋友</p>
-<h3 id="_3">時間複雜度</h3>
-<p><span class="arithmatex">\(O(m \times α(n) + p \times (n + k \times α(n)))\)</span></p>
-<pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
-
-struct Dsu {
-    std::vector&lt;int&gt; p;
-    Dsu(int n) : p(n, -1) {}
-
-    int rf(int x) {
-        if (p[x] &lt; 0) return x;
-        return p[x] = rf(p[x]);
+<p>首先，由於是最後要相乘，所以要先執行全部相乘的 function，而他 return 的結果就會是答案。</p>
+<p>換句話說，<code>Multi</code> 目的就是將一串運算式 (ex : 2+3*1+2+1) 算出答案</p>
+<pre><code class="language-C++">int Multi() {
+    int res = Plus(); // 先呼叫 Plus()，拿到第一個「加法項」的結果
+    while (pos &lt; s.size() &amp;&amp; s[pos] == '*') { // 檢查目前字元是不是 *，如果是就繼續乘
+        pos++;
+        res *= Plus(); // 再去算下一個加法項，乘進來
     }
-
-    void cb(int x, int y) {
-        x = rf(x);
-        y = rf(y);
-
-        if (x == y) return;
-        if (p[x] &gt; p[y]) std::swap(x, y);
-
-        p[x] += p[y];
-        p[y] = x;
-        return;
+    return res;
+}
+</code></pre>
+<p>接下來要看的是 <code>Plus()</code>，寫法幾乎跟 <code>Multi</code> 一樣。</p>
+<pre><code class="language-C++">int Plus() {
+    int res = g(); // 先呼叫 g()，拿到第一個數字
+    while (pos &lt; s.size() &amp;&amp; s[pos] == '+') {
+        pos++;
+        res += g(); // 再拿下一個數字，加進來
     }
+    return res;
+}
+</code></pre>
+<p>最後是 <code>g()</code> ，由於 <code>f()</code> 和 <code>154(隨便舉個例子)</code> 都是要 return 一個數，所以我把它們歸類在 <code>g()</code> 裡面。</p>
+<pre><code class="language-C++">int g() {
+    if (s[pos] == 'f') {
+        pos++;
+        pos++;
 
-    bool same(int x, int y) {
-        return rf(x) == rf(y);
-    }
-};
+        vector&lt;int&gt; a;
+        a.emplace_back(Multi());
 
-int main() {
-    std::cin.tie(nullptr) -&gt; sync_with_stdio(false);
-
-    int n, m;
-    std::cin &gt;&gt; n &gt;&gt; m;
-
-    Dsu base(2 * n);
-
-    for (int i = 0; i &lt; m; i++) {
-        int a, b;
-        std::cin &gt;&gt; a &gt;&gt; b;
-        base.cb(a, b + n);
-        base.cb(b, a + n);
-    }
-
-    int p, k;
-    std::cin &gt;&gt; p &gt;&gt; k;
-
-    for (int i = 1; i &lt;= p; i++) {
-        bool can = true;
-        Dsu d = base;
-        for (int j = 0; j &lt; k; j++) {
-            int a, b;
-            std::cin &gt;&gt; a &gt;&gt; b;
-            if (d.same(a, b) || d.same(a + n, b + n)) {
-                can = false;
-            } else {
-                d.cb(a, b + n);
-                d.cb(b, a + n);
-            }
+        while (pos &lt; s.size() &amp;&amp; s[pos] == ',') {
+            pos++;
+            a.emplace_back(Multi());
         }
-        if (!can) std::cout &lt;&lt; i &lt;&lt; '\n';
+
+        pos++;
+
+        int mx = *max_element(a.begin(), a.end());
+        int mn = *min_element(a.begin(), a.end());
+
+        return mx - mn;
+    } else {
+        int n = 0;
+        while (pos &lt; s.size() &amp;&amp; isdigit(s[pos])) {
+            n = n * 10 + (s[pos] - '0');
+            pos++;
+        }
+
+        return n;
     }
+}
+</code></pre>
+<p>其中</p>
+<pre><code class="language-C++">while (pos &lt; s.size() &amp;&amp; s[pos] == ',') {
+        pos++;               //  ','
+        a.emplace_back(Multi());  // 讀下一個參數
+}
+</code></pre>
+<p>解釋一下，假設 <code>f(13, 2+3, 5)</code>，因為一開始有呼叫 <code>Multi</code>，所以回來的時候都是 <code>s[pos] == ','</code>，直到最後遇到 <code>)</code>。</p>
+<h3 id="_3">複雜度</h3>
+<div class="arithmatex">\[
+O(N)
+\]</div>
+<pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
+#define int long long
+
+using namespace std;
+
+string s;
+int pos = 0;
+
+int Multi();
+int Plus();
+int g();
+
+int Multi() {
+    int res = Plus();
+    while (pos &lt; s.size() &amp;&amp; s[pos] == '*') {
+        pos++;
+        res *= Plus();
+    }
+    return res;
+}
+
+int Plus() {
+    int res = g();
+    while (pos &lt; s.size() &amp;&amp; s[pos] == '+') {
+        pos++;
+        res += g();
+    }
+    return res;
+}
+
+int g() {
+    if (s[pos] == 'f') {
+        pos++;
+        pos++;
+
+        vector&lt;int&gt; a;
+        a.emplace_back(Multi());
+
+        while (pos &lt; s.size() &amp;&amp; s[pos] == ',') {
+            pos++;
+            a.emplace_back(Multi());
+        }
+
+        pos++;
+
+        int mx = *max_element(a.begin(), a.end());
+        int mn = *min_element(a.begin(), a.end());
+
+        return mx - mn;
+    } else {
+        int n = 0;
+        while (pos &lt; s.size() &amp;&amp; isdigit(s[pos])) {
+            n = n * 10 + (s[pos] - '0');
+            pos++;
+        }
+
+        return n;
+    }
+}
+
+signed main() {
+    cin &gt;&gt; s;
+
+    cout &lt;&lt; Multi();
+
     return 0;
 }
 </code></pre>
