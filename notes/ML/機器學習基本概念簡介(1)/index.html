@@ -984,7 +984,7 @@
 
 <h2 id="2026-03-11">學習時間 : 2026 / 03 / 11 (五)</h2>
 <h3 id="_1">什麼是機器學習</h3>
-<p>就像一個 function，輸入一個東西，生成一個東西。舉例來說，輸入現在棋盤的長相 - &gt; 輸出下一步該下在哪裡。</p>
+<p>就像一個 function，輸入一個東西，生成一個東西。舉例來說，輸入現在棋盤的長相 -&gt; 輸出下一步該下在哪裡。</p>
 <h3 id="_2">機器學習的類別</h3>
 <ol>
 <li>Regression : 預測出來的結果是一個具體的數值</li>
@@ -996,48 +996,49 @@
 <p>簡單的猜 function 為 : 
 $$
 y = w \times x_i + b
-$$
-其中，<span class="arithmatex">\(x_i\)</span> 為前一天總共觀看的人數， <span class="arithmatex">\(b\)</span> 跟 <span class="arithmatex">\(w\)</span> 為未知的參數。</p>
-<p>此時，我們將這個帶有未知的的參數的 function 稱為 model(模型)。而我們提供給 ai 的線索稱為 feature (這裡的 x)，此外 w 是 weight、b 是 bias。</p>
+$$</p>
+<p>其中，<span class="arithmatex">\(x_i\)</span> 為前一天總共觀看的人數，<span class="arithmatex">\(b\)</span> 跟 <span class="arithmatex">\(w\)</span> 為未知的參數。</p>
+<p>此時，我們將這個帶有未知的參數的 function 稱為 model (模型)。而我們提供給 ai 的線索稱為 feature (這裡的 <span class="arithmatex">\(x\)</span>)，此外 <span class="arithmatex">\(w\)</span> 是 weight、<span class="arithmatex">\(b\)</span> 是 bias。</p>
 <h4 id="2-loss">2. 定義 loss</h4>
-<p>loss 是一個 function，輸入是 b 跟 w，輸出代表說把這一組未知的參數帶進去，設定某一個數值的時候，這筆預測出來的結果是好還不好。</p>
+<p>loss 是一個 function，輸入是 <span class="arithmatex">\(b\)</span> 跟 <span class="arithmatex">\(w\)</span>，輸出代表說把這一組未知的參數帶進去，設定某一個數值的時候，這筆預測出來的結果是好還不好。</p>
 <p>簡單來說就是帶進去後的預測出來的結果跟真正的資料 (label) 有沒有相差很多。</p>
-<p>這裡設定 <span class="arithmatex">\(e_i\)</span> 為這兩者之間的差距(加絕對值)，這裡 <span class="arithmatex">\(e_i\)</span> 的設法沒有一定。</p>
-<p>最後 loss 輸出
+<p>這裡設定 <span class="arithmatex">\(e_i\)</span> 為這兩者之間的差距 (加絕對值)，這裡 <span class="arithmatex">\(e_i\)</span> 的設法沒有一定。</p>
+<p>最後 loss 輸出：
 $$
-L = \frac{1}{N} \times \sum_i e_i，N 為訓練的總個數
+L = \frac{1}{N} \times \sum_i e_i
 $$
-當然，L 越小越好。</p>
+（其中 <span class="arithmatex">\(N\)</span> 為訓練的總個數）</p>
+<p>當然，<span class="arithmatex">\(L\)</span> 越小越好。</p>
 <h4 id="3_1">3. 解一個最佳化的問題</h4>
-<p>找出 w 跟 b 使 L 最小，此時，w 跟 b 分別為 w<em> 跟 b</em>。 
-這個方法稱為 <strong>Gragient Descent</strong> 。</p>
+<p>找出 <span class="arithmatex">\(w\)</span> 跟 <span class="arithmatex">\(b\)</span> 使 <span class="arithmatex">\(L\)</span> 最小，此時，最佳解的 <span class="arithmatex">\(w\)</span> 跟 <span class="arithmatex">\(b\)</span> 分別記為 <span class="arithmatex">\(w^*\)</span> 跟 <span class="arithmatex">\(b^*\)</span>。 
+這個方法稱為 <strong>Gradient Descent</strong> (梯度下降法)。</p>
 <h5 id="_3">這時先只看一個未知數</h5>
 <ol>
 <li>隨機找一個初始的點 <span class="arithmatex">\(w^0\)</span>。</li>
 <li>計算這個參數對 loss 的微分是多少。</li>
-<li>如果結果是負的 -&gt; 讓 w 變大，反之亦然。</li>
+<li>如果結果是負的 -&gt; 讓 <span class="arithmatex">\(w\)</span> 變大，反之亦然。</li>
 </ol>
-<p>好的那該怎麼決定 w 的變化要多大呢?這取決於
+<p>好的那該怎麼決定 <span class="arithmatex">\(w\)</span> 的變化要多大呢？這取決於：
 1. 當下的斜率
 2. <span class="arithmatex">\(\eta\)</span> : learning rate (這種機器學習需要自己設定的東西叫做 hyperparameters)</p>
-<p>w 的步伐就是這兩個相乘，以數學形式表示就是
+<p><span class="arithmatex">\(w\)</span> 的步伐就是這兩個相乘，以數學形式表示就是：
 $$
 w_{new} \leftarrow w_{old} - \eta \frac{\partial L}{\partial w}
 $$</p>
 <ul>
 <li><span class="arithmatex">\(w\)</span> 是模型中的未知參數。</li>
 <li><span class="arithmatex">\(\frac{\partial L}{\partial w}\)</span> 是計算出來的斜率。</li>
-<li><span class="arithmatex">\(\eta\)</span> 是 learning rate 。</li>
+<li><span class="arithmatex">\(\eta\)</span> 是 learning rate。</li>
 </ul>
-<p>我們把斜率乘上 <span class="arithmatex">\(\eta\)</span> 之後，去扣掉原本的參數，藉此來反覆更新我們的參數 w。</p>
-<p>那什麼時候停下來呢?往往有兩種情況 :
+<p>我們把斜率乘上 <span class="arithmatex">\(\eta\)</span> 之後，去扣掉原本的參數，藉此來反覆更新我們的參數 <span class="arithmatex">\(w\)</span>。</p>
+<p>那什麼時候停下來呢？往往有兩種情況：
 1. 自己設定調整次數 (這也是 hyperparameters)
 2. 微分等於 0</p>
-<p>但是，這有個問題，這方法無法找到最佳解 (global minima)，可能只找到 local minima...嗎?影片說，這可不是 Gragient Descent 真正的痛點，這之後會講。</p>
+<p>但是，這有個問題，這方法無法找到最佳解 (global minima)，可能只找到 local minima...嗎？影片說，這可不是 Gradient Descent 真正的痛點，這之後會講。</p>
 <h5 id="_4">現在有兩個未知數了</h5>
 <p>其實會看一個未知數就能推廣到兩個了。</p>
 <hr />
-<p>有時候模型會不准，這時候就要修改模型了</p>
+<p>有時候模型會不準，這時候就要修改模型了。</p>
 
 
 
