@@ -8,28 +8,26 @@
       
       
       
-        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2021-11-p4.html">
+        <link rel="canonical" href="https://i0cray.github.io/notes/ML/%E9%A0%90%E6%B8%AC%E6%9C%AC%E9%A0%BB%E9%81%93%E8%A7%80%E7%9C%8B%E4%BA%BA%E6%95%B8%20%28%E4%B8%8A%29%20-%20%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%B0%A1%E4%BB%8B/">
       
       
-        <link rel="prev" href="../index.html">
+        <link rel="prev" href="../_%E7%B0%A1%E4%BB%8B/">
       
-      
-        <link rel="next" href="2023-01-p3.html">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
     
     
       
-        <title>2021-11-p4 - 我的筆記</title>
+        <title>預測本頻道觀看人數 (上) - 機器學習基本概念簡介 - 我的筆記</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -48,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#2026-03-11" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +80,7 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="我的筆記" class="md-header__button md-logo" aria-label="我的筆記" data-md-component="logo">
+    <a href="../.." title="我的筆記" class="md-header__button md-logo" aria-label="我的筆記" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -102,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2021-11-p4
+              預測本頻道觀看人數 (上) - 機器學習基本概念簡介
             
           </span>
         </div>
@@ -171,11 +169,31 @@
     
     
       <li class="md-tabs__item">
-        <a href="../index.html" class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   
   首頁
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../APCS/2020-10-p3/" class="md-tabs__link">
+          
+  
+  
+  APCS
 
         </a>
       </li>
@@ -193,27 +211,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="2020-11-p3.md" class="md-tabs__link">
-          
-  
-  
-  APCS
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../ML/_%E7%B0%A1%E4%BB%8B.html" class="md-tabs__link">
+        <a href="../_%E7%B0%A1%E4%BB%8B/" class="md-tabs__link">
           
   
   
@@ -253,7 +251,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="我的筆記" class="md-nav__button md-logo" aria-label="我的筆記" data-md-component="logo">
+    <a href="../.." title="我的筆記" class="md-nav__button md-logo" aria-label="我的筆記" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -321,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../index.html" class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -329,6 +327,203 @@
     
   
     關於
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APCS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    APCS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2020-10-p3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020-11-p3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2021-11-p4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2021-11-p4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2023-01-p3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2023-01-p3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2023-06-p4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2023-06-p4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2024-06-p3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024-06-p3
   
 
     
@@ -372,17 +567,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    APCS
+    機器學習
   
 
     
@@ -393,12 +588,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    APCS
+    機器學習
   
 
           </label>
@@ -411,14 +606,14 @@
   
   
     <li class="md-nav__item">
-      <a href="2020-11-p3.md" class="md-nav__link">
+      <a href="../_%E7%B0%A1%E4%BB%8B/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2020-11-p3
+    簡介
   
 
     
@@ -453,7 +648,7 @@
   <span class="md-ellipsis">
     
   
-    2021-11-p4
+    預測本頻道觀看人數 (上) - 機器學習基本概念簡介
   
 
     
@@ -464,14 +659,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="2021-11-p4.html" class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    2021-11-p4
+    預測本頻道觀看人數 (上) - 機器學習基本概念簡介
   
 
     
@@ -495,35 +690,119 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2026-03-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        學習時間 : 2026 / 03 / 11 (五)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="學習時間 : 2026 / 03 / 11 (五)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        考點
+        什麼是機器學習
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        思路
+        機器學習的類別
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        時間複雜度
+        機器學習找函數的 3 個步驟
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="機器學習找函數的 3 個步驟">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 猜測一下
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 定義 loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 解一個最佳化的問題
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 解一個最佳化的問題">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        這時先只看一個未知數
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現在有兩個未知數了
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -531,203 +810,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2023-01-p3.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2023-01-p3
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2023-06-p4.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2023-06-p4
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="2024-06-p3.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2024-06-p3
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    機器學習
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    機器學習
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ML/_%E7%B0%A1%E4%BB%8B.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    簡介
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ML/%E9%A0%90%E6%B8%AC%E6%9C%AC%E9%A0%BB%E9%81%93%E8%A7%80%E7%9C%8B%E4%BA%BA%E6%95%B8%20%28%E4%B8%8A%29%20-%20%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%B0%A1%E4%BB%8B.html" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    預測本頻道觀看人數 (上) - 機器學習基本概念簡介
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -765,35 +847,119 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2026-03-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        學習時間 : 2026 / 03 / 11 (五)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="學習時間 : 2026 / 03 / 11 (五)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        考點
+        什麼是機器學習
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        思路
+        機器學習的類別
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        時間複雜度
+        機器學習找函數的 3 個步驟
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="機器學習找函數的 3 個步驟">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. 猜測一下
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-loss" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 定義 loss
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 解一個最佳化的問題
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 解一個最佳化的問題">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        這時先只看一個未知數
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        現在有兩個未知數了
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -814,78 +980,64 @@
 
 
 
-  <h1>2021-11-p4</h1>
+  <h1>預測本頻道觀看人數 (上) - 機器學習基本概念簡介</h1>
 
-<h3 id="_1">考點</h3>
-<p>dsu</p>
-<h3 id="_2">思路</h3>
-<p>敵人的敵人是朋友</p>
-<h3 id="_3">時間複雜度</h3>
-<p><span class="arithmatex">\(O(m \times α(n) + p \times (n + k \times α(n)))\)</span></p>
-<pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
-
-struct Dsu {
-    std::vector&lt;int&gt; p;
-    Dsu(int n) : p(n, -1) {}
-
-    int rf(int x) {
-        if (p[x] &lt; 0) return x;
-        return p[x] = rf(p[x]);
-    }
-
-    void cb(int x, int y) {
-        x = rf(x);
-        y = rf(y);
-
-        if (x == y) return;
-        if (p[x] &gt; p[y]) std::swap(x, y);
-
-        p[x] += p[y];
-        p[y] = x;
-        return;
-    }
-
-    bool same(int x, int y) {
-        return rf(x) == rf(y);
-    }
-};
-
-int main() {
-    std::cin.tie(nullptr) -&gt; sync_with_stdio(false);
-
-    int n, m;
-    std::cin &gt;&gt; n &gt;&gt; m;
-
-    Dsu base(2 * n);
-
-    for (int i = 0; i &lt; m; i++) {
-        int a, b;
-        std::cin &gt;&gt; a &gt;&gt; b;
-        base.cb(a, b + n);
-        base.cb(b, a + n);
-    }
-
-    int p, k;
-    std::cin &gt;&gt; p &gt;&gt; k;
-
-    for (int i = 1; i &lt;= p; i++) {
-        bool can = true;
-        Dsu d = base;
-        for (int j = 0; j &lt; k; j++) {
-            int a, b;
-            std::cin &gt;&gt; a &gt;&gt; b;
-            if (d.same(a, b) || d.same(a + n, b + n)) {
-                can = false;
-            } else {
-                d.cb(a, b + n);
-                d.cb(b, a + n);
-            }
-        }
-        if (!can) std::cout &lt;&lt; i &lt;&lt; '\n';
-    }
-    return 0;
-}
-</code></pre>
+<h2 id="2026-03-11">學習時間 : 2026 / 03 / 11 (五)</h2>
+<h3 id="_1">什麼是機器學習</h3>
+<p>就像一個 function，輸入一個東西，生成一個東西。舉例來說，輸入現在棋盤的長相 - &gt; 輸出下一步該下在哪裡。</p>
+<h3 id="_2">機器學習的類別</h3>
+<ol>
+<li>Regression : 預測出來的結果是一個具體的數值</li>
+<li>Classification : 給 AI 幾個固定的選項，讓它選出一個最正確的答案</li>
+<li>Structured Learning : 輸出的不是單一數字或選項，而是<strong>創造</strong>一個有結構的產物（例如一張圖、一篇文章）</li>
+</ol>
+<h3 id="3">機器學習找函數的 3 個步驟</h3>
+<h4 id="1">1. 猜測一下</h4>
+<p>簡單的猜 function 為 : 
+$$
+y = w \times x_i + b
+$$
+其中，<span class="arithmatex">\(x_i\)</span> 為前一天總共觀看的人數， <span class="arithmatex">\(b\)</span> 跟 <span class="arithmatex">\(w\)</span> 為未知的參數。</p>
+<p>此時，我們將這個帶有未知的的參數的 function 稱為 model(模型)。而我們提供給 ai 的線索稱為 feature (這裡的 x)，此外 w 是 weight、b 是 bias。</p>
+<h4 id="2-loss">2. 定義 loss</h4>
+<p>loss 是一個 function，輸入是 b 跟 w，輸出代表說把這一組未知的參數帶進去，設定某一個數值的時候，這筆預測出來的結果是好還不好。</p>
+<p>簡單來說就是帶進去後的預測出來的結果跟真正的資料 (label) 有沒有相差很多。</p>
+<p>這裡設定 <span class="arithmatex">\(e_i\)</span> 為這兩者之間的差距(加絕對值)，這裡 <span class="arithmatex">\(e_i\)</span> 的設法沒有一定。</p>
+<p>最後 loss 輸出
+$$
+L = \frac{1}{N} \times \sum_i e_i，N 為訓練的總個數
+$$
+當然，L 越小越好。</p>
+<h4 id="3_1">3. 解一個最佳化的問題</h4>
+<p>找出 w 跟 b 使 L 最小，此時，w 跟 b 分別為 w<em> 跟 b</em>。 
+這個方法稱為 <strong>Gragient Descent</strong> 。</p>
+<h5 id="_3">這時先只看一個未知數</h5>
+<ol>
+<li>隨機找一個初始的點 <span class="arithmatex">\(w^0\)</span>。</li>
+<li>計算這個參數對 loss 的微分是多少。</li>
+<li>如果結果是負的 -&gt; 讓 w 變大，反之亦然。</li>
+</ol>
+<p>好的那該怎麼決定 w 的變化要多大呢?這取決於
+1. 當下的斜率
+2. <span class="arithmatex">\(\eta\)</span> : learning rate (這種機器學習需要自己設定的東西叫做 hyperparameters)</p>
+<p>w 的步伐就是這兩個相乘，以數學形式表示就是
+$$
+w_{new} \leftarrow w_{old} - \eta \frac{\partial L}{\partial w}
+$$</p>
+<ul>
+<li><span class="arithmatex">\(w\)</span> 是模型中的未知參數。</li>
+<li><span class="arithmatex">\(\frac{\partial L}{\partial w}\)</span> 是計算出來的斜率。</li>
+<li><span class="arithmatex">\(\eta\)</span> 是 learning rate 。</li>
+</ul>
+<p>我們把斜率乘上 <span class="arithmatex">\(\eta\)</span> 之後，去扣掉原本的參數，藉此來反覆更新我們的參數 w。</p>
+<p>那什麼時候停下來呢?往往有兩種情況 :
+1. 自己設定調整次數 (這也是 hyperparameters)
+2. 微分等於 0</p>
+<p>但是，這有個問題，這方法無法找到最佳解 (global minima)，可能只找到 local minima...嗎?影片說，這可不是 Gragient Descent 真正的痛點，這之後會講。</p>
+<h5 id="_4">現在有兩個未知數了</h5>
+<p>其實會看一個未知數就能推廣到兩個了。</p>
+<hr />
+<p>有時候模型會不准，這時候就要修改模型了</p>
 
 
 
@@ -941,16 +1093,16 @@ int main() {
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.top", "navigation.tabs", "navigation.tabs.sticky", "search.highlight", "content.code.copy", "content.code.select", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
-        <script src="../javascripts/auto-collapse-code.js"></script>
+        <script src="../../javascripts/auto-collapse-code.js"></script>
       
     
   </body>
