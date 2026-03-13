@@ -14,6 +14,8 @@
         <link rel="prev" href="../%E7%B0%A1%E4%BB%8B/">
       
       
+        <link rel="next" href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%B0%A1%E4%BB%8B%282%29/">
+      
       
         
       
@@ -815,6 +817,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%B0%A1%E4%BB%8B%282%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    機器學習基本概念簡介(2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1018,9 +1048,11 @@ L = \frac{1}{N} \times \sum_i e_i
 <li>計算這個參數對 loss 的微分是多少。</li>
 <li>如果結果是負的 -&gt; 讓 <span class="arithmatex">\(w\)</span> 變大，反之亦然。</li>
 </ol>
-<p>好的那該怎麼決定 <span class="arithmatex">\(w\)</span> 的變化要多大呢？這取決於：
-1. 當下的斜率
-2. <span class="arithmatex">\(\eta\)</span> : learning rate (這種機器學習需要自己設定的東西叫做 hyperparameters)</p>
+<p>好的那該怎麼決定 <span class="arithmatex">\(w\)</span> 的變化要多大呢？這取決於：</p>
+<ol>
+<li>當下的斜率</li>
+<li><span class="arithmatex">\(\eta\)</span> : learning rate (這種機器學習需要自己設定的東西叫做 hyperparameters)</li>
+</ol>
 <p><span class="arithmatex">\(w\)</span> 的步伐就是這兩個相乘，以數學形式表示就是：</p>
 <div class="arithmatex">\[
 w_{new} \leftarrow w_{old} - \eta \frac{\partial L}{\partial w}
@@ -1031,9 +1063,11 @@ w_{new} \leftarrow w_{old} - \eta \frac{\partial L}{\partial w}
 <li><span class="arithmatex">\(\eta\)</span> 是 learning rate。</li>
 </ul>
 <p>我們把斜率乘上 <span class="arithmatex">\(\eta\)</span> 之後，去扣掉原本的參數，藉此來反覆更新我們的參數 <span class="arithmatex">\(w\)</span>。</p>
-<p>那什麼時候停下來呢？往往有兩種情況：
-1. 自己設定調整次數 (這也是 hyperparameters)
-2. 微分等於 0</p>
+<p>那什麼時候停下來呢？往往有兩種情況：</p>
+<ol>
+<li>自己設定調整次數 (這也是 hyperparameters)</li>
+<li>微分等於 0</li>
+</ol>
 <p>但是，這有個問題，這方法無法找到最佳解 (global minima)，可能只找到 local minima...嗎？影片說，這可不是 Gradient Descent 真正的痛點，這之後會講。</p>
 <h5 id="_4">現在有兩個未知數了</h5>
 <p>其實會看一個未知數就能推廣到兩個了。</p>
