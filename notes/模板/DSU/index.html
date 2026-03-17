@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://i0cray.github.io/notes/ML/%E7%B0%A1%E4%BB%8B/">
+        <link rel="canonical" href="https://i0cray.github.io/notes/%E6%A8%A1%E6%9D%BF/DSU/">
       
       
-        <link rel="prev" href="../../APCS/2024-06-p3/">
-      
-      
-        <link rel="next" href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%B0%A1%E4%BB%8B%281%29/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>簡介 - 我的筆記</title>
+        <title>DSU - 我的筆記</title>
       
     
     
@@ -97,7 +93,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              簡介
+              DSU
             
           </span>
         </div>
@@ -202,17 +198,15 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../DSU.md" class="md-tabs__link">
           
   
   
-  機器學習
+  模板
 
         </a>
       </li>
@@ -545,36 +539,31 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    機器學習
+    模板
   
 
     
@@ -585,12 +574,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    機器學習
+    模板
   
 
           </label>
@@ -600,81 +589,17 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    簡介
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%B0%A1%E4%BB%8B%281%29/" class="md-nav__link">
+      <a href="../../DSU.md" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    機器學習基本概念簡介(1)
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E7%B0%A1%E4%BB%8B%282%29/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    機器學習基本概念簡介(2)
+    DSU
   
 
     
@@ -728,11 +653,34 @@
 
 
 
-  <h1>簡介</h1>
+  <h1>DSU</h1>
 
-<p>這份筆記是記錄學習李宏毅教授在 youtube 上所發布的機器學習的教學影片
-https://youtube.com/playlist?list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J&amp;si=csm9r0WRDL2uPLjn</p>
-<p>本人為初學者，如有寫錯的地方，歡迎指正，謝謝。</p>
+<pre><code class="language-cpp">struct DSU {
+    vector&lt;int&gt; p;
+    DSU (int n) : p(n + 1, -1) {}
+
+    int rf(int x) {
+        if (p[x] &lt; 0) return x;
+        return p[x] = rf(p[x]);
+    }
+
+    void cb(int x, int y) {
+        x = rf(x);
+        y = rf(y);
+
+        if (x == y) return;
+        if (p[x] &gt; p[y]) swap(x, y);
+
+        p[x] += p[y];
+        p[y] = x;
+    }
+};
+
+int main() {
+    DSU dsu(n);
+}
+
+</code></pre>
 
 
 
