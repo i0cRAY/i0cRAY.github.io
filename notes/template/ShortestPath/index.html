@@ -8,13 +8,11 @@
       
       
       
-        <link rel="canonical" href="https://i0cray.github.io/notes/APCS/2021-11-p4/">
+        <link rel="canonical" href="https://i0cray.github.io/notes/template/ShortestPath/">
       
       
-        <link rel="prev" href="../2020-10-p3/">
+        <link rel="prev" href="../DSU/">
       
-      
-        <link rel="next" href="../2023-01-p3/">
       
       
         
@@ -25,7 +23,7 @@
     
     
       
-        <title>2021-11-p4 - 我的筆記</title>
+        <title>Shortest Path - 我的筆記</title>
       
     
     
@@ -66,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#dijkstra" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2021-11-p4
+              Shortest Path
             
           </span>
         </div>
@@ -187,13 +185,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../2020-10-p3/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../APCS/2020-10-p3/" class="md-tabs__link">
           
   
   
@@ -209,11 +205,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../template/DSU/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../DSU/" class="md-tabs__link">
           
   
   
@@ -353,6 +351,203 @@
       
   
   
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    APCS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    APCS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2020-10-p3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2020-11-p3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2021-11-p4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2021-11-p4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2023-01-p3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2023-01-p3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2023-06-p4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2023-06-p4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../APCS/2024-06-p3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2024-06-p3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -372,17 +567,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    APCS
+    template
   
 
     
@@ -393,12 +588,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
-    APCS
+    template
   
 
           </label>
@@ -411,14 +606,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../2020-10-p3/" class="md-nav__link">
+      <a href="../DSU/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2020-11-p3
+    DSU
   
 
     
@@ -453,7 +648,7 @@
   <span class="md-ellipsis">
     
   
-    2021-11-p4
+    Shortest Path
   
 
     
@@ -471,7 +666,7 @@
   <span class="md-ellipsis">
     
   
-    2021-11-p4
+    Shortest Path
   
 
     
@@ -495,32 +690,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#dijkstra" class="md-nav__link">
     <span class="md-ellipsis">
       
-        考點
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        思路
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        時間複雜度
+        Dijkstra
       
     </span>
   </a>
@@ -531,203 +704,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2023-01-p3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2023-01-p3
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2023-06-p4/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2023-06-p4
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2024-06-p3/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    2024-06-p3
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    template
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    template
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../template/DSU/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DSU
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../template/ShortestPath/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Shortest Path
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -765,32 +741,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#dijkstra" class="md-nav__link">
     <span class="md-ellipsis">
       
-        考點
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        思路
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        時間複雜度
+        Dijkstra
       
     </span>
   </a>
@@ -814,77 +768,38 @@
 
 
 
-  <h1>2021-11-p4</h1>
+  <h1>Shortest Path</h1>
 
-<h3 id="_1">考點</h3>
-<p>dsu</p>
-<h3 id="_2">思路</h3>
-<p>敵人的敵人是朋友</p>
-<h3 id="_3">時間複雜度</h3>
-<p><span class="arithmatex">\(O(m \times α(n) + p \times (n + k \times α(n)))\)</span></p>
-<pre><code class="language-C++">#include &lt;bits/stdc++.h&gt;
+<h3 id="dijkstra">Dijkstra</h3>
+<pre><code class="language-cpp">set&lt;pair&lt;int, int&gt;&gt; st;
+st.insert({0, start});
 
-struct Dsu {
-    std::vector&lt;int&gt; p;
-    Dsu(int n) : p(n, -1) {}
+vector&lt;bool&gt; done(n);
+vector&lt;int&gt; d(n, INT_MAX);
 
-    int rf(int x) {
-        if (p[x] &lt; 0) return x;
-        return p[x] = rf(p[x]);
-    }
+d[start] = 0;
 
-    void cb(int x, int y) {
-        x = rf(x);
-        y = rf(y);
+while (!st.empty()) {
+    auto b = *st.begin();
+    st.erase(st.begin());
 
-        if (x == y) return;
-        if (p[x] &gt; p[y]) std::swap(x, y);
+    int u = b.second;
+    if (done[u]) continue;
+    done[u] = true;
 
-        p[x] += p[y];
-        p[y] = x;
-        return;
-    }
+    for (auto e : adj[u]) {
+        int v = e.first;
+        int w = e.second;
 
-    bool same(int x, int y) {
-        return rf(x) == rf(y);
-    }
-};
-
-int main() {
-    std::cin.tie(nullptr) -&gt; sync_with_stdio(false);
-
-    int n, m;
-    std::cin &gt;&gt; n &gt;&gt; m;
-
-    Dsu base(2 * n);
-
-    for (int i = 0; i &lt; m; i++) {
-        int a, b;
-        std::cin &gt;&gt; a &gt;&gt; b;
-        base.cb(a, b + n);
-        base.cb(b, a + n);
-    }
-
-    int p, k;
-    std::cin &gt;&gt; p &gt;&gt; k;
-
-    for (int i = 1; i &lt;= p; i++) {
-        bool can = true;
-        Dsu d = base;
-        for (int j = 0; j &lt; k; j++) {
-            int a, b;
-            std::cin &gt;&gt; a &gt;&gt; b;
-            if (d.same(a, b) || d.same(a + n, b + n)) {
-                can = false;
-            } else {
-                d.cb(a, b + n);
-                d.cb(b, a + n);
-            }
+        if (d[u] + w &lt; d[v]) {
+            st.erase({d[v], v});
+            d[v] = d[u] + w;
+            st.insert({d[v], v});
         }
-        if (!can) std::cout &lt;&lt; i &lt;&lt; '\n';
     }
-    return 0;
 }
+
+return d[goal];
 </code></pre>
 
 
